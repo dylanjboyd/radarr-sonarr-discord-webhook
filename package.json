@@ -1,5 +1,5 @@
 {
-  "name": "plex-notifications",
+  "name": "radarr-sonarr-discord-webhook",
   "version": "0.0.1",
   "engines": {
     "node": "12.15.x",
