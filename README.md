@@ -4,6 +4,8 @@
 [![License](https://img.shields.io/:license-mit-blue.svg)](https://badges.mit-license.org)
 [![codecov](https://codecov.io/gh/dylanjboyd/radarr-sonarr-discord-webhook/branch/master/graph/badge.svg)](https://codecov.io/gh/dylanjboyd/radarr-sonarr-discord-webhook)
 [![JavaScript Style Guide: Good Parts](https://img.shields.io/badge/code%20style-goodparts-brightgreen.svg?style=flat)](https://github.com/dwyl/goodparts "JavaScript The Good Parts")
+[![Maintainability](https://api.codeclimate.com/v1/badges/d8548e0893cf815e0699/maintainability)](https://codeclimate.com/github/dylanjboyd/radarr-sonarr-discord-webhook/maintainability)
+
 
 This small Node.JS app is based on the [plex-discord-webhook](https://github.com/Floydan/plex-discord-webhook) library created by Floydan, which is in turn based on the library [webhooks-slack](https://github.com/plexinc/webhooks-slack) created by plexinc.
 
