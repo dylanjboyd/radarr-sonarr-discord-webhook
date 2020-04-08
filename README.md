@@ -3,6 +3,7 @@
 ![Build Status](https://travis-ci.com/dylanjboyd/radarr-sonarr-discord-webhook.svg?branch=master)
 [![License](https://img.shields.io/:license-mit-blue.svg)](https://badges.mit-license.org)
 [![codecov](https://codecov.io/gh/dylanjboyd/radarr-sonarr-discord-webhook/branch/master/graph/badge.svg)](https://codecov.io/gh/dylanjboyd/radarr-sonarr-discord-webhook)
+[![JavaScript Style Guide: Good Parts](https://img.shields.io/badge/code%20style-goodparts-brightgreen.svg?style=flat)](https://github.com/dwyl/goodparts "JavaScript The Good Parts")
 
 This small Node.JS app is based on the [plex-discord-webhook](https://github.com/Floydan/plex-discord-webhook) library created by Floydan, which is in turn based on the library [webhooks-slack](https://github.com/plexinc/webhooks-slack) created by plexinc.
 

@@ -1,55 +1,57 @@
-﻿const express = require('express'),
-    request = require('request'),
-    translator = require('./translator');
+﻿const express = require('express');
+const request = require('request');
+const translator = require('./translator');
 
-const discordUrl = `https://discordapp.com/api/webhooks/${process.env.DISCORD_WEBHOOK_KEY}`;
+const discordUrl = `https://discordapp.com/api/webhooks/\
+${process.env.DISCORD_WEBHOOK_KEY}`;
 const apiKey = process.env.API_KEY;
 
 const getEnabledEventTypes = () => ({
-    'Grab': process.env.ON_GRAB,
-    'Download': process.env.ON_DOWNLOAD,
-    'Rename': process.env.ON_RENAME,
-    'Test': process.env.ON_TEST
+  Grab: process.env.ON_GRAB,
+  Download: process.env.ON_DOWNLOAD,
+  Rename: process.env.ON_RENAME,
+  Test: process.env.ON_TEST
 });
 
-// const redisClient = redis.createClient(process.env.REDISCLOUD_URL, {return_buffers: true});
-// const upload = multer({storage: multer.memoryStorage()});
 const app = express();
 
 app.use(express.static('images'));
 app.use(express.json());
 
 function notifyDiscord(payload, mediaType) {
-    const discordPayloadFunc = mediaType === 'movie' ? translator.translateMovie : translator.translateShow;
+  const discordPayloadFunc = mediaType === 'movie'
+    ? translator.translateMovie
+    : translator.translateShow;
 
-    request.post({
-            url: discordUrl,
-            json: discordPayloadFunc(payload)
-        },
-        function (error, response, body) {
-            if (!error && response.statusCode === 200) {
-                console.log(body);
-            } else {
-                console.error(`Failed to POST to Discord: ${error}`);
-            }
-        }
-    );
+  request.post({
+    url: discordUrl,
+    json: discordPayloadFunc(payload)
+  });
 }
 
-app.post('/radarr/:apiKey', function (req, res, next) {
-    const eventTypeDict = getEnabledEventTypes();
-    if (req.params.apiKey !== apiKey) return res.sendStatus(204);
-    if (eventTypeDict[req.body.eventType]) notifyDiscord(req.body, 'movie'); // One of Grab, Download, Rename, Test
-    res.sendStatus(204);
+function handleEventPost(req, res, mediaType) {
+  const eventTypeDict = getEnabledEventTypes();
+
+  if (req.params.apiKey !== apiKey) {
+    return res.sendStatus(204);
+  }
+  if (eventTypeDict[req.body.eventType]) { // One of Grab, Download, Rename, Test
+    notifyDiscord(req.body, mediaType);
+  }
+
+  return res.sendStatus(204);
+}
+
+app.post('/radarr/:apiKey', (req, res) => {
+  return handleEventPost(req, res, 'movie');
 });
 
-app.post('/sonarr/:apiKey', function (req, res, next) {
-    const eventTypeDict = getEnabledEventTypes();
-    if (req.params.apiKey !== apiKey) return res.sendStatus(204);
-    if (eventTypeDict[req.body.eventType]) notifyDiscord(req.body, 'show'); // One of Grab, Download, Rename, Test
-    res.sendStatus(204);
+app.post('/sonarr/:apiKey', (req, res) => {
+  return handleEventPost(req, res, 'show');
 });
 
-if (process.env.NODE_ENV !== 'test') app.listen(process.env.PORT || 11000);
+if (process.env.NODE_ENV !== 'test') {
+  app.listen(process.env.PORT || 11000);
+}
 
 module.exports = app;

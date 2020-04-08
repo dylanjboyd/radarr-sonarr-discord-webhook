@@ -1,27 +1,32 @@
-const {translateShow, translateMovie} = require('../translator');
+const {translateMovie} = require('../translator');
 const fs = require('fs');
 
 test('Radarr Grab parsed correctly', () => {
-    const translatedMovie = translateMovie(JSON.parse(fs.readFileSync('__tests__/sample_radarr_grab.json', 'utf8')));
-    expect(translatedMovie).toBeTruthy();
+  const grabFilename = '__tests__/sample_radarr_grab.json';
+  const fileContent = fs.readFileSync(grabFilename, 'utf8');
+  const translatedMovie = translateMovie(JSON.parse(fileContent));
 
-    // Username
-    expect(translatedMovie).toHaveProperty('username', 'Radarr');
+  expect(translatedMovie).toBeTruthy();
 
-    // Avatar
-    expect(translatedMovie).toHaveProperty('avatar_url', 'https://undefined.herokuapp.com/radarr-icon.png');
+  // Username
+  expect(translatedMovie).toHaveProperty('username', 'Radarr');
 
-    // Embeds
-    expect(translatedMovie).toHaveProperty('embeds');
-    expect(translatedMovie.embeds).toHaveLength(1);
-    const embed = translatedMovie.embeds[0];
+  // Avatar
+  const iconUrl = 'https://undefined.herokuapp.com/radarr-icon.png';
 
-    // Title
-    expect(embed).toHaveProperty('title', 'Finding Nemo (2003)');
+  expect(translatedMovie).toHaveProperty('avatar_url', iconUrl);
 
-    // Description
-    expect(embed).toHaveProperty('description', 'Movie grabbed');
+  // Embeds
+  expect(translatedMovie).toHaveProperty('embeds');
+  expect(translatedMovie.embeds).toHaveLength(1);
+  const embed = translatedMovie.embeds[0];
 
-    // Footer
-    expect(embed).not.toHaveProperty('footer');
+  // Title
+  expect(embed).toHaveProperty('title', 'Finding Nemo (2003)');
+
+  // Description
+  expect(embed).toHaveProperty('description', 'Movie grabbed');
+
+  // Footer
+  expect(embed).not.toHaveProperty('footer');
 });
