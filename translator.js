@@ -25,7 +25,7 @@ const translate = (title, description, footer, imageUrl, avatarUrl) => {
     };
 
     if (footer) result.footer = {
-        "text": `Movie added`,
+        "text": footer
     };
 
     return (result);
