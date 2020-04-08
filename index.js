@@ -1,11 +1,5 @@
-﻿const express = require('express')
-    , request = require('request')
-    , multer = require('multer')
-    , redis = require('redis')
-    //, lwip = require('lwip')
-    , jimp = require('jimp')
-    , sha1 = require('sha1')
-    , freegeoip = require('node-freegeoip'),
+﻿const express = require('express'),
+    request = require('request'),
     translator = require('./translator');
 
 const discordUrl = `https://discordapp.com/api/webhooks/${process.env.DISCORD_WEBHOOK_KEY}`;
