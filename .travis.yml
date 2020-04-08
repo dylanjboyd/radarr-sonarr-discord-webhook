@@ -8,3 +8,8 @@ deploy:
 language: node_js
 node_js:
   - "lts/*"
+install:
+  - npm install -g codecov
+script:
+  - jest
+  - codecov

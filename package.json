@@ -17,5 +17,9 @@
   "devDependencies": {
     "jest": "^25.2.7",
     "supertest": "^4.0.2"
+  },
+  "jest": {
+    "coverageDirectory": "./coverage/",
+    "collectCoverage": true
   }
 }
