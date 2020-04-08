@@ -1,0 +1,29 @@
+{
+  "eventType": "Download",
+  "series": {
+    "id": 2,
+    "title": "Gravity Falls",
+    "path": "C:\\Temp\\sonarr\\Gravity Falls",
+    "tvdbId": 259972
+  },
+  "episodes": [
+    {
+      "id": 67,
+      "episodeNumber": 14,
+      "seasonNumber": 2,
+      "title": "The Stanchurian Candidate",
+      "airDate": "2015-08-24",
+      "airDateUtc": "2015-08-25T01:30:00Z",
+      "quality": "HDTV-720p",
+      "qualityVersion": 1
+    }
+  ],
+  "episodeFile": {
+    "id": 1181,
+    "relativePath": "Season 02\\Gravity Falls - s02e14.mkv",
+    "path": "C:\\path\\to\\file\\GravityFalls - s02e14.mkv",
+    "quality": "HDTV-720p",
+    "qualityVersion": 1
+  },
+  "isUpgrade": false
+}

@@ -1,0 +1,9 @@
+{
+  "eventType": "Rename",
+  "series": {
+    "id": 2,
+    "title": "Gravity Falls",
+    "path": "C:\\Temp\\sonarr\\Gravity Falls",
+    "tvdbId": 259972
+  }
+}

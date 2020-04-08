@@ -1,0 +1,22 @@
+{
+  "eventType": "Grab",
+  "movie": {
+    "id": 2,
+    "title": "Finding Nemo",
+    "releaseDate": "2003-08-28"
+  },
+  "remoteMovie": {
+    "tmdbId": 12,
+    "imdbId": "tt0266543",
+    "title": "Finding Nemo",
+    "year": 2003
+  },
+  "release": {
+    "quality": "DVD",
+    "qualityVersion": 1,
+    "releaseGroup": "XME",
+    "releaseTitle": "Finding.Nemo.2003.iNTERNAL.DVDRip.x264-XME",
+    "indexer": "NZBgeek",
+    "size": 2172672000
+  }
+}

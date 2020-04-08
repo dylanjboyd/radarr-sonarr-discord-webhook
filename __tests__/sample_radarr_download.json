@@ -1,0 +1,23 @@
+{
+  "eventType": "Download",
+  "movie": {
+    "id": 2,
+    "title": "Finding Nemo",
+    "releaseDate": "2003-08-28"
+  },
+  "remoteMovie": {
+    "tmdbId": 12,
+    "imdbId": "tt0266543",
+    "title": "Finding Nemo",
+    "year": 2003
+  },
+  "movieFile": {
+    "id": 2,
+    "relativePath": "Finding Nemo (2003) DVD.mkv",
+    "path": "Z:\\Finding.Nemo.2003.iNTERNAL.DVDRip.x264-REGRET\\regret-nemo.mkv",
+    "quality": "DVD",
+    "qualityVersion": 1,
+    "releaseGroup": "REGRET"
+  },
+  "isUpgrade": false
+}

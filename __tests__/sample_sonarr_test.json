@@ -1,0 +1,18 @@
+{
+  "eventType": "Test",
+  "series": {
+    "id": 1,
+    "title": "Test Title",
+    "path": "C:\\testpath",
+    "tvdbId": 1234
+  },
+  "episodes": [
+    {
+      "id": 123,
+      "episodeNumber": 1,
+      "seasonNumber": 1,
+      "title": "Test title",
+      "qualityVersion": 0
+    }
+  ]
+}

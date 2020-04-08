@@ -1,0 +1,26 @@
+{
+  "eventType": "Grab",
+  "series": {
+    "id": 2,
+    "title": "Gravity Falls",
+    "path": "C:\\Temp\\sonarr\\Gravity Falls",
+    "tvdbId": 259972
+  },
+  "episodes": [
+    {
+      "id": 67,
+      "episodeNumber": 14,
+      "seasonNumber": 2,
+      "title": "The Stanchurian Candidate",
+      "airDate": "2015-08-24",
+      "airDateUtc": "2015-08-25T01:30:00Z",
+      "quality": "HDTV-720p",
+      "qualityVersion": 1
+    }
+  ],
+  "release": {
+    "quality": "HDTV-720p",
+    "qualityVersion": 1,
+    "size": 0
+  }
+}
