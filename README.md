@@ -1,6 +1,7 @@
 # Radarr/Sonarr Discord Webhook integration
 
 ![Build Status](https://travis-ci.com/dylanjboyd/radarr-sonarr-discord-webhook.svg?branch=master)
+[![License](https://img.shields.io/:license-mit-blue.svg)](https://badges.mit-license.org)
 
 This small Node.JS app is based on the [plex-discord-webhook](https://github.com/Floydan/plex-discord-webhook) library created by Floydan, which is in turn based on the library [webhooks-slack](https://github.com/plexinc/webhooks-slack) created by plexinc.
 
