@@ -2,7 +2,7 @@
 
 ![Build Status](https://travis-ci.com/dylanjboyd/radarr-sonarr-discord-webhook.svg?branch=master)
 
-This small Node.JS app is based on the [plex-discord-webhook](https://github.com/Floydan/plex-discord-webhook) library created by Floydan [webhooks-slack](https://github.com/plexinc/webhooks-slack), which is in turn based on the library created by plexinc.
+This small Node.JS app is based on the [plex-discord-webhook](https://github.com/Floydan/plex-discord-webhook) library created by Floydan, which is in turn based on the library [webhooks-slack](https://github.com/plexinc/webhooks-slack) created by plexinc.
 
 In order to run this app:
  
