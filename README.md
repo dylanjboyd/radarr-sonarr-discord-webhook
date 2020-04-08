@@ -1,6 +1,6 @@
 # Radarr/Sonarr Discord Webhook integration
 
-![Build Status](https://travis-ci.com/dylanjboyd/radarr-sonarr-discord-webhook.svg?branch=master)
+[![Build Status](https://travis-ci.com/dylanjboyd/radarr-sonarr-discord-webhook.svg?branch=master)](https://travis-ci.com/dylanjboyd/radarr-sonarr-discord-webhook)
 [![License](https://img.shields.io/:license-mit-blue.svg)](https://badges.mit-license.org)
 [![codecov](https://codecov.io/gh/dylanjboyd/radarr-sonarr-discord-webhook/branch/master/graph/badge.svg)](https://codecov.io/gh/dylanjboyd/radarr-sonarr-discord-webhook)
 [![JavaScript Style Guide: Good Parts](https://img.shields.io/badge/code%20style-goodparts-brightgreen.svg?style=flat)](https://github.com/dwyl/goodparts "JavaScript The Good Parts")
