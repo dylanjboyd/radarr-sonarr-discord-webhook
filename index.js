@@ -4,6 +4,14 @@
 
 const discordUrl = `https://discordapp.com/api/webhooks/${process.env.DISCORD_WEBHOOK_KEY}`;
 const apiKey = process.env.API_KEY;
+
+const getEnabledEventTypes = () => ({
+    'Grab': process.env.ON_GRAB,
+    'Download': process.env.ON_DOWNLOAD,
+    'Rename': process.env.ON_RENAME,
+    'Test': process.env.ON_TEST
+});
+
 // const redisClient = redis.createClient(process.env.REDISCLOUD_URL, {return_buffers: true});
 // const upload = multer({storage: multer.memoryStorage()});
 const app = express();
@@ -29,15 +37,19 @@ function notifyDiscord(payload, mediaType) {
 }
 
 app.post('/radarr/:apiKey', function (req, res, next) {
+    const eventTypeDict = getEnabledEventTypes();
     if (req.params.apiKey !== apiKey) return res.sendStatus(204);
-    if (req.body.eventType === 'Grab') notifyDiscord(req.body, 'movie'); // One of Grab, Download, Rename, Test
+    if (eventTypeDict[req.body.eventType]) notifyDiscord(req.body, 'movie'); // One of Grab, Download, Rename, Test
     res.sendStatus(204);
 });
 
 app.post('/sonarr/:apiKey', function (req, res, next) {
+    const eventTypeDict = getEnabledEventTypes();
     if (req.params.apiKey !== apiKey) return res.sendStatus(204);
-    if (req.body.eventType === 'Grab') notifyDiscord(req.body, 'show'); // One of Grab, Download, Rename, Test
+    if (eventTypeDict[req.body.eventType]) notifyDiscord(req.body, 'show'); // One of Grab, Download, Rename, Test
     res.sendStatus(204);
 });
 
-app.listen(process.env.PORT || 11000);
+if (process.env.NODE_ENV !== 'test') app.listen(process.env.PORT || 11000);
+
+module.exports = app;

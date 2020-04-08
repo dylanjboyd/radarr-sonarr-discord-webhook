@@ -2,8 +2,7 @@ const {translateShow, translateMovie} = require('../translator');
 const fs = require('fs');
 
 test('Radarr Grab parsed correctly', () => {
-    const contents = JSON.parse(fs.readFileSync('__tests__/sample_radarr_grab.json', 'utf8'));
-    const translatedMovie = translateMovie(contents);
+    const translatedMovie = translateMovie(JSON.parse(fs.readFileSync('__tests__/sample_radarr_grab.json', 'utf8')));
     expect(translatedMovie).toBeTruthy();
 
     // Username
@@ -21,7 +20,7 @@ test('Radarr Grab parsed correctly', () => {
     expect(embed).toHaveProperty('title', 'Finding Nemo (2003)');
 
     // Description
-    expect(embed).toHaveProperty('description', 'Movie added');
+    expect(embed).toHaveProperty('description', 'Movie grabbed');
 
     // Footer
     expect(embed).not.toHaveProperty('footer');
