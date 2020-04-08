@@ -6,6 +6,9 @@ test('Radarr Grab parsed correctly', () => {
     const translatedMovie = translateMovie(contents);
     expect(translatedMovie).toBeTruthy();
 
+    // Username
+    expect(translatedMovie).toHaveProperty('username', 'Radarr');
+
     // Avatar
     expect(translatedMovie).toHaveProperty('avatar_url', 'https://undefined.herokuapp.com/radarr-icon.png');
 
