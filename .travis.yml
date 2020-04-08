@@ -5,3 +5,6 @@ deploy:
   app: radarr-sonarr-discord-webhook
   on:
     repo: dylanjboyd/radarr-sonarr-discord-webhook
+  language: node_js
+  node_js:
+    - "lts/*"
