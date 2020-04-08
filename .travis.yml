@@ -9,7 +9,7 @@ language: node_js
 node_js:
   - "lts/*"
 install:
-  - npm install -g codecov
+  - npm install -g codecov jest
 script:
   - jest
   - codecov
