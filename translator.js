@@ -28,7 +28,7 @@ const translateToDiscord = bundle => {
   };
 
   if (bundle.footer) {
-    result.footer = {text: bundle.footer};
+    result.footer = { text: bundle.footer };
   }
 
   return (result);
@@ -40,6 +40,10 @@ const getMovieTitle = payload => (payload.movie && payload.remoteMovie)
 
 const getShowTitle = payload => {
   const title = payload.series.title;
+
+  if (title && !payload.episodes) {
+    return title;
+  }
 
   const season = payload.episodes[0].seasonNumber.toString().padStart(2, '0');
   const episode = payload.episodes[0].episodeNumber.toString().padStart(2, '0');
@@ -56,15 +60,21 @@ const translateMovie = payload => translateToDiscord({
   username: 'Radarr',
   avatarUrl: movieAvatarUrl,
   title: getMovieTitle(payload),
-  description: `Movie ${eventTypeVerbDict[payload.eventType]}`
+  description: `Movie \
+${payload.eventType === 'Download' && payload.isUpgrade
+    ? 'upgraded'
+    : eventTypeVerbDict[payload.eventType]}`
 });
 
 const translateShow = payload => translateToDiscord({
   username: 'Sonarr',
   avatarUrl: showAvatarUrl,
   title: getShowTitle(payload),
-  description: `Episode(s) ${eventTypeVerbDict[payload.eventType]}`
+  description: `Episode(s) \
+${payload.eventType === 'Download' && payload.isUpgrade
+    ? 'upgraded'
+    : eventTypeVerbDict[payload.eventType]}`
 });
 
 
-module.exports = {translateMovie, translateShow};
+module.exports = { translateMovie, translateShow };
