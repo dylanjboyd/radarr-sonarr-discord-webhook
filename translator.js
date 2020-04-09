@@ -1,3 +1,6 @@
+/* eslint-disable no-process-env */
+'use strict';
+
 const appUrl = `https://${process.env.HEROKU_APP_NAME}.herokuapp.com`;
 const showAvatarUrl = `${appUrl}/sonarr-icon.png`;
 const movieAvatarUrl = `${appUrl}/radarr-icon.png`;
@@ -13,16 +16,19 @@ const translateToDiscord = bundle => {
   const result = {
     content: '',
     username: bundle.username,
+    // eslint-disable-next-line camelcase
     avatar_url: bundle.avatarUrl,
     embeds: [
       {
         title: bundle.title,
         description: bundle.description,
-        thumbnail: bundle.imageUrl ? {
-          url: bundle.imageUrl,
-          height: 200,
-          width: '200'
-        } : null
+        thumbnail: bundle.imageUrl ?
+          {
+            url: bundle.imageUrl,
+            height: 200,
+            width: '200'
+          } :
+          null
       }
     ]
   };
@@ -31,15 +37,15 @@ const translateToDiscord = bundle => {
     result.footer = { text: bundle.footer };
   }
 
-  return (result);
+  return result;
 };
 
-const getMovieTitle = payload => (payload.movie && payload.remoteMovie)
-  ? `${payload.movie.title} (${payload.remoteMovie.year})`
-  : 'Generic notification';
+const getMovieTitle = payload => payload.movie && payload.remoteMovie ?
+  `${payload.movie.title} (${payload.remoteMovie.year})` :
+  'Generic notification';
 
 const getShowTitle = payload => {
-  const title = payload.series.title;
+  const { title } = payload.series;
 
   if (title && !payload.episodes) {
     return title;
@@ -47,13 +53,13 @@ const getShowTitle = payload => {
 
   const season = payload.episodes[0].seasonNumber.toString().padStart(2, '0');
   const episode = payload.episodes[0].episodeNumber.toString().padStart(2, '0');
-  const othersText = payload.episodes.length > 1
-    ? '+' + (payload.episodes.length - 1) + 'others'
-    : '';
+  const othersText = payload.episodes.length > 1 ?
+    `+${payload.episodes.length - 1}others` :
+    '';
 
-  return (payload.series && payload.episodes)
-    ? `${title} (S${season}E${episode})${othersText}`
-    : 'Generic notification';
+  return payload.series && payload.episodes ?
+    `${title} (S${season}E${episode})${othersText}` :
+    'Generic notification';
 };
 
 const translateMovie = payload => translateToDiscord({
@@ -61,9 +67,9 @@ const translateMovie = payload => translateToDiscord({
   avatarUrl: movieAvatarUrl,
   title: getMovieTitle(payload),
   description: `Movie \
-${payload.eventType === 'Download' && payload.isUpgrade
-    ? 'upgraded'
-    : eventTypeVerbDict[payload.eventType]}`
+${payload.eventType === 'Download' && payload.isUpgrade ?
+    'upgraded' :
+    eventTypeVerbDict[payload.eventType]}`
 });
 
 const translateShow = payload => translateToDiscord({
@@ -71,10 +77,9 @@ const translateShow = payload => translateToDiscord({
   avatarUrl: showAvatarUrl,
   title: getShowTitle(payload),
   description: `Episode(s) \
-${payload.eventType === 'Download' && payload.isUpgrade
-    ? 'upgraded'
-    : eventTypeVerbDict[payload.eventType]}`
+${payload.eventType === 'Download' && payload.isUpgrade ?
+    'upgraded' :
+    eventTypeVerbDict[payload.eventType]}`
 });
-
 
 module.exports = { translateMovie, translateShow };

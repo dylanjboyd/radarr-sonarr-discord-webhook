@@ -8,8 +8,8 @@ describe('Radarr', () => {
   let radarrDownloadContent;
 
   beforeEach(async () => {
-    radarrGrabContent = JSON.parse(await fs.readFile('__tests__/sample_radarr_grab.json', 'utf8'));
-    radarrDownloadContent = JSON.parse(await fs.readFile('__tests__/sample_radarr_download.json', 'utf8'));
+    radarrGrabContent = JSON.parse(await fs.readFile('__tests__/sampleRadarrGrab.json', 'utf8'));
+    radarrDownloadContent = JSON.parse(await fs.readFile('__tests__/sampleRadarrDownload.json', 'utf8'));
   });
 
   it('should parse a grab correctly.', async done => {

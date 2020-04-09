@@ -6,5 +6,11 @@
     "es6": true,
     "jest": true
   },
-  "extends": "es/node"
+  "extends": [
+    "es/node",
+    "plugin:json/recommended"
+  ],
+  "plugins": [
+    "markdown"
+  ]
 }

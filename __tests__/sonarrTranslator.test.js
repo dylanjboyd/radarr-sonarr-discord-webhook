@@ -7,7 +7,7 @@ describe('Sonarr', () => {
   let sonarrDownloadContent;
 
   beforeEach(async () => {
-    sonarrDownloadContent = JSON.parse(await fs.readFile('__tests__/sample_sonarr_download.json', 'utf8'));
+    sonarrDownloadContent = JSON.parse(await fs.readFile('__tests__/sampleSonarrDownload.json', 'utf8'));
   });
 
   it('should respect upgrades.', async done => {

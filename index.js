@@ -1,4 +1,7 @@
-﻿const express = require('express');
+/* eslint-disable no-process-env */
+'use strict';
+
+const express = require('express');
 const request = require('request');
 const translator = require('./translator');
 
@@ -18,37 +21,35 @@ const app = express();
 app.use(express.static('images'));
 app.use(express.json());
 
-function notifyDiscord(payload, mediaType) {
-  const discordPayloadFunc = mediaType === 'movie'
-    ? translator.translateMovie
-    : translator.translateShow;
+const notifyDiscord = (payload, mediaType) => {
+  const discordPayloadFunc = mediaType === 'movie' ?
+    translator.translateMovie :
+    translator.translateShow;
 
   request.post({
     url: discordUrl,
     json: discordPayloadFunc(payload)
   });
-}
+};
 
-function handleEventPost(req, res, mediaType) {
+const handleEventPost = (req, res, mediaType) => {
   const eventTypeDict = getEnabledEventTypes();
 
   if (req.params.apiKey !== apiKey) {
     return res.sendStatus(204);
   }
-  if (eventTypeDict[req.body.eventType]) { // One of Grab, Download, Rename, Test
+
+  // One of Grab, Download, Rename, Test
+  if (eventTypeDict[req.body.eventType]) {
     notifyDiscord(req.body, mediaType);
   }
 
   return res.sendStatus(204);
-}
+};
 
-app.post('/radarr/:apiKey', (req, res) => {
-  return handleEventPost(req, res, 'movie');
-});
+app.post('/radarr/:apiKey', (req, res) => handleEventPost(req, res, 'movie'));
 
-app.post('/sonarr/:apiKey', (req, res) => {
-  return handleEventPost(req, res, 'show');
-});
+app.post('/sonarr/:apiKey', (req, res) => handleEventPost(req, res, 'show'));
 
 if (process.env.NODE_ENV !== 'test') {
   app.listen(process.env.PORT || 11000);
