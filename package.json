@@ -15,7 +15,7 @@
     "request": "^2.88.2"
   },
   "devDependencies": {
-    "eslint-config-goodparts": "0.0.1",
+    "eslint-config-es": "^3.19.53",
     "goodparts": "^1.2.1",
     "jest": "^25.2.7",
     "supertest": "^4.0.2"
