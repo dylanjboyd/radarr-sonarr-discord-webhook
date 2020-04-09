@@ -1,4 +1,14 @@
 {
-  "stack": "heroku-18"
+  "name": "Radarr/Sonarr Discord Webhook",
+  "description": "A web application that facilitates forwarding messages from Radarr or Sonarr to Discord via webhooks",
+  "repository": "https://github.com/dylanjboyd/radarr-sonarr-discord-webhook",
+  "keywords": [
+    "node",
+    "express",
+    "webhook",
+    "radarr",
+    "sonarr",
+    "discord"
+  ]
 }
  

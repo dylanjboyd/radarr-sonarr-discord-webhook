@@ -12,6 +12,8 @@
 This is a small Node.JS app based on the [plex-discord-webhook](https://github.com/Floydan/plex-discord-webhook) library created by Floydan, which is in turn based on the library [webhooks-slack](https://github.com/plexinc/webhooks-slack) created by plexinc.
 
 ## Quickstart
+
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
  
 - Install [node.js](https://nodejs.org/en/).
 - Clone the repository.
