@@ -10,6 +10,5 @@ node_js:
   - "lts/*"
 before_install:
   - npm i -g codecov
-script:
-  - jest
+after_script:
   - codecov
