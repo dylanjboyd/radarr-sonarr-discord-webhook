@@ -7,6 +7,8 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/d8548e0893cf815e0699/maintainability)](https://codeclimate.com/github/dylanjboyd/radarr-sonarr-discord-webhook/maintainability)
 [![David-DM dependencies](https://david-dm.org/dylanjboyd/radarr-sonarr-discord-webhook/status.svg)](https://david-dm.org/dylanjboyd/radarr-sonarr-discord-webhook)
 [![David-DM dev dependencies](https://david-dm.org/dylanjboyd/radarr-sonarr-discord-webhook/dev-status.svg)](https://david-dm.org/dylanjboyd/radarr-sonarr-discord-webhook?type=dev)
+[![Known Vulnerabilities](https://snyk.io/test/github/dylanjboyd/radarr-sonarr-discord-webhook/badge.svg?targetFile=package.json)](https://snyk.io/test/github/dylanjboyd/radarr-sonarr-discord-webhook?targetFile=package.json)
+
 
 
 This is a small Node.JS app based on the [plex-discord-webhook](https://github.com/Floydan/plex-discord-webhook) library created by Floydan, which is in turn based on the library [webhooks-slack](https://github.com/plexinc/webhooks-slack) created by plexinc.
