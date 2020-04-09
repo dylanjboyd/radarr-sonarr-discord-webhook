@@ -10,7 +10,7 @@ describe('Sonarr', () => {
     sonarrDownloadContent = JSON.parse(await fs.readFile('__tests__/sample_sonarr_download.json', 'utf8'));
   });
 
-  it('should respect upgrades', async done => {
+  it('should respect upgrades.', async done => {
     sonarrDownloadContent.isUpgrade = true;
     const translatedShow = translateShow(sonarrDownloadContent);
 

@@ -1,4 +1,3 @@
-/* eslint-disable mocha/valid-test-description */
 'use strict';
 
 const { translateMovie } = require('../translator');
@@ -13,7 +12,7 @@ describe('Radarr', () => {
     radarrDownloadContent = JSON.parse(await fs.readFile('__tests__/sample_radarr_download.json', 'utf8'));
   });
 
-  it('should parse a grab correctly', async done => {
+  it('should parse a grab correctly.', async done => {
     const translatedMovie = translateMovie(radarrGrabContent);
 
     expect(translatedMovie).toBeTruthy();
@@ -39,7 +38,7 @@ describe('Radarr', () => {
     done();
   });
 
-  it('should respect upgrades', async done => {
+  it('should respect upgrades.', async done => {
     radarrDownloadContent.isUpgrade = true;
     const translatedMovie = translateMovie(radarrDownloadContent);
 
