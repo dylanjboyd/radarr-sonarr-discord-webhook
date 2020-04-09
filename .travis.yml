@@ -10,5 +10,5 @@ node_js:
   - "lts/*"
 before_install:
   - npm i -g codecov
-after_script:
+before_deploy:
   - codecov
