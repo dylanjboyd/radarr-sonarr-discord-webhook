@@ -15,7 +15,7 @@ describe('Post Sonarr', () => {
   beforeEach(async () => {
     jest.resetAllMocks();
   });
-  const eventTypes = [ 'Download', 'Grab', 'Rename', 'test' ];
+  const eventTypes = [ 'Download', 'Grab', 'Rename', 'Test' ];
 
   test.each(eventTypes)('should respect %p.', async eventType => {
     const testFilename = `__tests__/sampleSonarr${eventType}.json`;
