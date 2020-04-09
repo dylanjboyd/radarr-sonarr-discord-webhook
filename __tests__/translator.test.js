@@ -1,8 +1,27 @@
-const { translateMovie } = require('../translator');
+const { translateMovie, translateShow } = require('../translator');
 const fs = require('fs');
 
-let radarrGrabContent;
-let radarrDownloadContent;
+let radarrGrabContent, radarrDownloadContent;
+
+describe('Sonarr', () => {
+  let sonarrDownloadContent;
+
+  beforeEach(() => {
+    const downloadFilename = '__tests__/sample_sonarr_download.json';
+
+    sonarrDownloadContent = JSON.parse(
+      fs.readFileSync(downloadFilename, 'utf8')
+    );
+  });
+
+  it('should respect upgrades', () => {
+    sonarrDownloadContent.isUpgrade = true;
+    const translatedShow = translateShow(sonarrDownloadContent);
+
+    expect(translatedShow.embeds[0])
+      .toHaveProperty('description', 'Episode(s) upgraded');
+  });
+});
 
 describe('Radarr', () => {
   beforeEach(() => {
