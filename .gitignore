@@ -253,3 +253,6 @@ paket-files/
 *.env
 
 *.njsproj
+
+# coverage directory (as this will be run during CI)
+coverage/
