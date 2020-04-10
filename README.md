@@ -11,6 +11,12 @@
 
 This is a small Node.JS app based on the [plex-discord-webhook](https://github.com/Floydan/plex-discord-webhook) library created by Floydan, which is in turn based on the library [webhooks-slack](https://github.com/plexinc/webhooks-slack) created by plexinc.
 
+---
+
+**NOTE:** As of April 10, 2020, Sonarr supports directly POSTing to a Discord webhook, making this intermediary app redundant. However, it is still useful for older versions of Sonarr, or for the current version of Radarr. 
+
+---
+
 ## Quickstart
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
